@@ -68,7 +68,7 @@ function loadHomepage(data) {
 
   var toggleButton = `
   
-    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#listView" aria-expanded="false" aria-controls="listView">List View</button>
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#listView" aria-expanded="false" aria-controls="listView">Toggle View</button>
     `;
   
   $("#toggleBtn").html(toggleButton)
