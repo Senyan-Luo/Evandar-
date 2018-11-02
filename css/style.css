@@ -11,9 +11,9 @@
     margin: 0 auto;
    
 }
-#toggleBtn{
-  margin-left:60%;
-  margin-top:5%;
+.btn-info{
+  margin-left:65%;
+  margin-top:9%;
 }
 .animated-icon {
     width: 30px;

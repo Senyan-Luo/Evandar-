@@ -67,34 +67,22 @@ function loadHomepage(data) {
   console.log(data);
 
   var toggleButton = `
-    <Button type="button" id="toggleBtn" class="btn btn-success col-sm-4 offset-md-4">List View</Button>
+  
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#listView" aria-expanded="false" aria-controls="listView">List View</button>
     `;
   
   $("#toggleBtn").html(toggleButton)
-  /* $("#toggleBtn").attr("clicked","false")
- */
-
-  $(toggleBtn).on("click", function() {
-    console.log("hi")
-    if(clicked = false){
-      clicked = true
-      $("#main-body").empty();
-      let list = `
-      <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">List View</h1>
-    <p class="lead">Display Events in list view</p>
-  </div>
-</div>
-      `
-      $("#main-body").html(list);
-      
+  
+  $(toggleBtn).on("click", function(event) {
+    if($("#main-body").attr("class") === "visible"){
+      console.log("visible")
+      $("#main-body").attr("class","invisible")
     } else {
-      clicked = false
+      $("#main-body").attr("class","visible")
     }
-
-
-  });
+    event.preventDefault();
+    console.log("hi")
+  })
 
   let carouselString = `
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -137,7 +125,7 @@ function loadHomepage(data) {
                         <p>"${item.tagline}"</p>
                       </div>
                  
-<button tabindex="0" type="button" class="btn btn-secondary" style="margin-left:46%;" data-container="body" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="${item.description}      ${item.interest} Likes">
+<button tabindex="0" type="button" class="btn btn-secondary" style="margin-left:46%;" data-container="#carouselDiv" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="${item.description}      ${item.interest} Likes">
   Learn More
 </button>
 `;
