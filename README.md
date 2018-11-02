@@ -1,2 +1,2 @@
-# Evandar-
-Our group project for Cogs120
+# Evendar
+Our group project for Cogs120!
