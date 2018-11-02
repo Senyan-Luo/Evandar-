@@ -1,26 +1,63 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title> Evendar | Home </title>
-        <meta name="description" content="Home of Evendar">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Evendar | Home </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="grid">
     <header>
-        <h1>Evendar</h1>
-        <a href="./pages/navigation.html"> Navigation Button (Drop-Down Menu)</a>
-        Search Bar<input type="text">
+        <nav class="navbar navbar-light fixed-top" style="background-color:rgba(255, 193, 7, 0.66);">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="#">Logo Area</a>
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
+                aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="animated-icon"><span></span><span></span><span></span></div>
+            </button>
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent22">
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link " id="landing-page" href="./index.html">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="create-page" href="#">Post New Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="faq-page" href="#">FAQ</a>
+                    </li>
+                </ul>
+                <!-- Links -->
+            </div>
+            <!-- Collapsible content -->
+        </nav>
+        <!--/.Navbar-->
     </header>
-    <br>
-    <br>
-    <br>
-    <body>
-        <a href="./pages/chrono.html"> Toggle View </a>
-        <div class="carousel" align="center" border-style="solid">
-            <h3>Fun Event!</h3>
-            <h4>Hosted by: <a href="./pages/clubview.html">Club X</a></h4>
-            <p> Date of Event </p>
-            <p> Time of Event </p>
-            <p> Location of Event </p>
-            <p> <i>NIFTY TAGLINE </i></p>
-        </div>
-    </body>
+  <div id="toggleBtn"></div>
+    <div id="main-body">
+    </div>
+
+    
+     
+    
+    <div id="formDiv"></div>
+    <div id="faq"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
 </html>
