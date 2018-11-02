@@ -49,10 +49,12 @@ $(document).ready(function() {
     } else if ($(this).attr("id") == "create-page") {
       console.log("load create-page");
       $("#main-body").empty();
+      $("#toggleBtn").empty();
       $("#faq").empty();
       createForm();
     } else {
       console.log("load faq-page");
+      $("#toggleBtn").empty();
       $("#main-body").empty();
       $("#formDiv").empty();
       loadfaq();
@@ -63,14 +65,36 @@ $(document).ready(function() {
 function loadHomepage(data) {
   console.log("inside loadHomepage");
   console.log(data);
-  var buttonDiv = document.createElement("div");
-  var containerDiv = document.getElementById("toggleBtn");
+
   var toggleButton = `
-    <Button type="button" id="toggleBtn" class="btn btn-success">List View</Button>
+    <Button type="button" id="toggleBtn" class="btn btn-success col-sm-4 offset-md-4">List View</Button>
     `;
-  buttonDiv.innerHTML = toggleButton;
-  $(containerDiv).prepend(buttonDiv);
-  $(toggleBtn).on("click", function() {});
+  
+  $("#toggleBtn").html(toggleButton)
+  /* $("#toggleBtn").attr("clicked","false")
+ */
+
+  $(toggleBtn).on("click", function() {
+    console.log("hi")
+    if(clicked = false){
+      clicked = true
+      $("#main-body").empty();
+      let list = `
+      <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">List View</h1>
+    <p class="lead">Display Events in list view</p>
+  </div>
+</div>
+      `
+      $("#main-body").html(list);
+      
+    } else {
+      clicked = false
+    }
+
+
+  });
 
   let carouselString = `
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

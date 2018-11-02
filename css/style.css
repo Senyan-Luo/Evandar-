@@ -1,6 +1,7 @@
 
 #main-body {
-    margin-top: 10%;
+    margin-top: 5%;
+    
 }
 .navbar-light .navbar-toggler {
     border:none;
@@ -9,6 +10,10 @@
     width:80%;
     margin: 0 auto;
    
+}
+#toggleBtn{
+  margin-left:60%;
+  margin-top:5%;
 }
 .animated-icon {
     width: 30px;
