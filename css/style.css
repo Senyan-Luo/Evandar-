@@ -1,8 +1,7 @@
-
-#main-body {
-    margin-top: 5%;
-    
+.container {
+  padding-top: 8%;
 }
+
 .navbar-light .navbar-toggler {
     border:none;
 }
