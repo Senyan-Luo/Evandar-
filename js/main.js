@@ -37,10 +37,12 @@ $(document).ready(function() {
     trigger: "focus"
   });
 
+  
+
   function loadHomepage(data) {
     console.log("triggered loadHomepage");
     
-    $(toggleBtn).on("click", function(event) {
+    $("#toggleBtn").on("click", function(event) {
       event.preventDefault();
       $(".main-body").toggleClass("listView");
       if ($(".main-body").hasClass("listView")) {
