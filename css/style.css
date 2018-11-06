@@ -1,8 +1,8 @@
-
-#main-body {
-    margin-top: 5%;
-    
+.container {
+  padding-top: 8%;
+  padding-bottom: 5%;
 }
+
 .navbar-light .navbar-toggler {
     border:none;
 }
@@ -11,9 +11,12 @@
     margin: 0 auto;
    
 }
+#toggleBtn{
+  margin-bottom: 2%;
+}
 .btn-info{
   margin-left:65%;
-  margin-top:9%;
+  margin-top:4%;
 }
 .animated-icon {
     width: 30px;
@@ -52,7 +55,7 @@
   
   
   .animated-icon span {
-      background: #e3f2fd;
+      background:black;
   }
   
  

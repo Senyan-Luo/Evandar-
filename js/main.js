@@ -24,67 +24,41 @@ const Events = [
 ];
 
 $(document).ready(function() {
+  loadHomepage(Events);
   $(".navbar-toggler").on("click", function() {
     $(".animated-icon").toggleClass("open");
   });
   $(".carousel").carousel();
-  loadHomepage(Events);
 
   $('[data-toggle="popover"]').popover({
-    container: '#carouselDiv'
-  })
-  $('.popover-dismiss').popover({
-    trigger: 'focus'
-  })
-
-  $("li a").on("click", function(event) {
-    event.preventDefault();
-    console.log("clicked on an anchor tag");
-    if ($(this).attr("id") == "landing-page") {
-     $("#formDiv").empty();
-     $("#faq").empty();
-     $(this).attr("href","./index.html")
-      console.log("load landing-page");
-      loadHomepage(Events);
-    } else if ($(this).attr("id") == "create-page") {
-      console.log("load create-page");
-      $("#main-body").empty();
-      $("#toggleBtn").empty();
-      $("#faq").empty();
-      createForm();
-    } else {
-      console.log("load faq-page");
-      $("#toggleBtn").empty();
-      $("#main-body").empty();
-      $("#formDiv").empty();
-      loadfaq();
-    }
+    container: "#carouselDiv"
   });
-});
+  $(".popover-dismiss").popover({
+    trigger: "focus"
+  });
 
-function loadHomepage(data) {
-  console.log("inside loadHomepage");
-  console.log(data);
-
-  var toggleButton = `
   
-    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#listView" aria-expanded="false" aria-controls="listView">Toggle View</button>
+
+  function loadHomepage(data) {
+    console.log("triggered loadHomepage");
+    
+    $("#toggleBtn").on("click", function(event) {
+      event.preventDefault();
+      $(".main-body").toggleClass("listView");
+      if ($(".main-body").hasClass("listView")) {
+        listString = `
+        <div class="jumbotron">
+    <h1>It will display a list view</h1>
+    </div>
     `;
-  
-  $("#toggleBtn").html(toggleButton)
-  
-  $(toggleBtn).on("click", function(event) {
-    if($("#main-body").attr("class") === "visible"){
-      console.log("visible")
-      $("#main-body").attr("class","invisible")
-    } else {
-      $("#main-body").attr("class","visible")
-    }
-    event.preventDefault();
-    console.log("hi")
-  })
+        $(".listView").html(listString);
+      } else {
+        $(".listView").empty();
+        $(".main-body").html(carouselString);
+      }
+    });
 
-  let carouselString = `
+    let carouselString = `
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" id="carouselDiv">
             
@@ -107,14 +81,13 @@ function loadHomepage(data) {
           <span class="sr-only">Next</span>
         </a>
       </div>
-      `
+      `;
+      $(".main-body").html(carouselString);
 
-      $("#main-body").html(carouselString);
-
-  data.forEach(item => {
-    let newEvent = document.createElement("div");
-    $(newEvent).addClass("carousel-item");
-    var domString = `
+    data.forEach(item => {
+      let newEvent = document.createElement("div");
+      $(newEvent).addClass("carousel-item");
+      var domString = `
                   <img class="d-block w-100" src="http://via.placeholder.com/800x300" alt="First slide">
                   <div class="carousel-caption">
                         <h3>${item.title}</h3>
@@ -125,80 +98,15 @@ function loadHomepage(data) {
                         <p>"${item.tagline}"</p>
                       </div>
                  
-<button tabindex="0" type="button" class="btn btn-secondary" style="margin-left:46%;" data-container="#carouselDiv" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="${item.description}      ${item.interest} Likes">
+<button tabindex="0" type="button" class="btn btn-secondary" style="margin-left:46%;" data-container="#carouselDiv" data-trigger="focus" data-toggle="popover" data-placement="top" data-content="${
+        item.description
+      }      ${item.interest} Likes">
   Learn More
 </button>
 `;
-     $(newEvent).html(domString)
-     console.log(newEvent)
-         $("#carouselDiv").append(newEvent);
-  });
-}
-
-function createForm() {
-    let elem = $("#formDiv");
-    let formString = `
-    <div class="jumbotron jumbotron-fluid">
-    <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4"></label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4"></label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress"></label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2"></label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity"></label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState"></label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip"></label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-      
-      </label>
-    </div>
-  </div>
-  <button type="button" class="btn btn-primary">Preview</button>
-</form>
-<div class="jumbotron jumbotron-fluid">
-    `
-    $(elem).html(formString)
-}
-
-function loadfaq () {
-    let domString = `
-    <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h2">FAQ Page</h2>
-    <p class="lead">Find answers to the most commonly asked questions on our site.</p>
-  </div>
-</div>
-    `
-    $("#faq").html(domString);
-}
- 
+      $(newEvent).html(domString);
+      console.log(newEvent);
+      $("#carouselDiv").append(newEvent);
+    });
+  }
+});

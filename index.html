@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="grid">
+<body class="container">
     <header>
         <nav class="navbar navbar-light fixed-top" style="background-color:rgba(255, 193, 7, 0.66);">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="#">Logo Area</a>
+            <a class="navbar-brand" href="/index.html">Logo Area</a>
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
                 aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,13 +26,13 @@
                 <!-- Links -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link " id="landing-page" href="./index.html">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link " id="landing-page" href="/index.html">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="create-page" href="#">Post New Event</a>
+                        <a class="nav-link" id="create-page" href="./pages/add_event.html">Post New Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="faq-page" href="#">FAQ</a>
+                        <a class="nav-link" id="faq-page" href="./pages/faq.html">FAQ</a>
                     </li>
                 </ul>
                 <!-- Links -->
@@ -40,22 +40,19 @@
             <!-- Collapsible content -->
         </nav>
         <!--/.Navbar-->
-    </header>
-  <div id="toggleBtn"></div>
- 
-       
+    </header>  
       </div>
-      <div id="listView" class="collapse multi-collapse jumbotron">
+      <div id="toggleBtn"><button class="btn btn-info" type="button">Toggle View</button></div>
+      <!-- <div id="listView" class="jumbotron">
           <h1>Display a list of all events in a given week in chronological order</h1>
+    </div> -->
+    <div class="main-body" > 
     </div>
-    <div id="main-body" class="visible" >   
-    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
     
-    
-     
-    
-    <div id="formDiv"></div>
-    <div id="faq"></div>
+    <script src='./js/app.js'></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
