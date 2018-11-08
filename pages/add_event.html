@@ -54,8 +54,8 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6">
-                    <label class="mr-sm-2" for="inlineFormCustomSelect">Host Organization</label>
-                    <select class="custom-select mr-sm-2 host" id="inlineFormCustomSelect" required>
+                    <label class="mr-sm-2" for="host">Host Organization</label>
+                    <select class="custom-select mr-sm-2 host" id="host" required>
                         <option value=""></option>
                         <option value="DS3">DS3</option>
                         <option value="CU">CU</option>
@@ -156,22 +156,46 @@ function wordCounter2(){
   $('#count').text(remainingLength);
 });
 }
+/* (function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.click('submitform', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})(); */
 
  $(document).ready(function() {
     
   $("#submitform").on("click", function(event){
       event.preventDefault();
+
+      /* if ($(".needs-validation").checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        $(".needs-validation").classList.add('was-validated'); */
+
       console.log("clicked submit button")
       db.collection('events').add({
           title: $("#name").val().trim(),
-          host: $(".host.select").children("option:selected").val(),
+          host:  $("#host option:selected").val(),
           date: $("#date").val().trim(),
           startTime: $("#start-time").val().trim(),
           endTime:$("#end-time").val().trim(),
           location:$("#location").val().trim(),
           tagline:$("#tagline").val().trim(),
           details:$("#details").val().trim(),
-          image:$("#image").val().trim()    
+          image:$("#image").val().trim()  
           }).then(function(docRef) {
     console.log("Document written with ID: ", docRef.id);
 }).catch(function(error) {
