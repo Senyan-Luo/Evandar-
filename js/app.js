@@ -8,9 +8,14 @@
     messagingSenderId: "279832144780"
   };
   firebase.initializeApp(config);
-  var db = firebase.firestore();
-  const eventsRef = db.collection("events")
-  // Disable deprecated features
-  db.settings({
+ var db = firebase.firestore();
+ db.settings({
     timestampsInSnapshots: true
   });
+  const eventsRef = db.collection("events")
+
+  $("#submitform").on("click", )
+
+  
+
+ 
