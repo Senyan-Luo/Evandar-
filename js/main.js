@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  carouselView();
   $(".navbar-toggler").on("click", function() {
     $(".animated-icon").toggleClass("open");
   });
@@ -19,7 +19,7 @@ $(document).ready(function() {
     trigger: "focus"
   });
   
-
+function carouselView(){
   var source = $("#carousel-template").html();
   console.log(source)
   var template = Handlebars.compile(source);
@@ -31,27 +31,34 @@ $(document).ready(function() {
       console.log(doc.data().description);
       var string = template(doc.data());
       carousel.append(string);
-     
     });
   });
+}
   
  
    
     $("#toggleBtn").on("click", function(event) {
+     
+      console.log('clicked on toggle');
       event.preventDefault();
       $(".main-body").toggleClass("listView");
-      if ($(".main-body").hasClass("listView")) {
+
         listString = `
         <div class="jumbotron">
     <h1>It will display a list view</h1>
     </div>
     `;
         $(".listView").html(listString);
-      } else {
-        $(".listView").empty();
-      }
+        $("#toggleBtn").text("carousel")
+        $("#toggleBtn").attr("id","toCarousel")
     });
 
+    $("#toCarousel").on("click", function(event) {
+      console.log('clicked on carousel');
+      event.preventDefault();
+      $(".listView").empty()
+      carouselView()
+    })
 
    
   
