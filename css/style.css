@@ -11,6 +11,16 @@
     margin: 0 auto;
    
 }
+.carousel-control-next, .carousel-control-prev {
+  opacity: 1;
+ 
+}
+
+.carousel-caption {
+  color:navy;
+  bottom: 35%;
+}
+
 .popover{
   max-width: 80%; 
  /*  z-index: 99 !important;
