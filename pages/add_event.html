@@ -124,9 +124,26 @@
                 </div>
                 <div class="form-row">
                     <div id="preview"class="offset-sm-3"><button class="btn btn-primary" type="button">Preview</button></div>
-                    <div class="offset-sm-3"><button id="submitform" class="btn btn-primary" type="submit">Submit</button></div>
+                    <div class="offset-sm-3"><button id="submitform"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button></div>
                     
                  </div>
+                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header align-content">
+                              <h5 class="modal-title" id="exampleModalLabel">Upload Successful!</h5>
+                              
+                            </div>
+                            <div class="modal-body">
+                              Your new event is now live on Evendar
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
                 </form>
         </form>
@@ -197,7 +214,17 @@ function wordCounter2(){
           description:$("#details").val().trim(),
           image:$("#image").val().trim()  
           }).then(function(docRef) {
+            $("#name").val(""),
+$("#host option:selected").val(""),
+$("#date").val(""),
+$("#start-time").val(""),
+$("#end-time").val(""),
+$("#location").val(""),
+$("#tagline").val(""),
+$("#details").val(""),
+$("#image").val("")
     console.log("Document written with ID: ", docRef.id);
+
 }).catch(function(error) {
     console.error("Error adding document: ", error);
 });
