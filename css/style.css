@@ -15,6 +15,7 @@ nav{
     margin: 0 auto;
    
 }
+
 .carousel-control-next, .carousel-control-prev {
   opacity: 1;
  
@@ -51,6 +52,10 @@ p{
   padding-right:0;
 }
 
+label {
+  margin-bottom: 0;
+  margin-top:1.5em;
+}
 .caption {
   position:absolute;
   right:15%;
