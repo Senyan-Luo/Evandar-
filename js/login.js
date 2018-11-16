@@ -1,4 +1,3 @@
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
     callbacks: {
@@ -19,7 +18,6 @@ var uiConfig = {
     signInSuccessUrl: '../../pages/add_event.html',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 
       firebase.auth.EmailAuthProvider.PROVIDER_ID 
     ],
@@ -29,4 +27,5 @@ var uiConfig = {
     privacyPolicyUrl: '../../pages/faq.html'
   };
   
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
   ui.start('#firebaseui-auth-container', uiConfig);
