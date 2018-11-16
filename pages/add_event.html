@@ -60,6 +60,8 @@
                         <option value="DS3">DS3</option>
                         <option value="CU">CU</option>
                         <option value="UBIC">UBIC</option>
+                        <option value="SGA">SGA</option>
+                        <option value="TAS">TAS</option>
                     </select>
                     <div class="invalid-feedback">
                         Please select your organization's acronym
@@ -186,7 +188,7 @@
                 var regex = /\s+/gi;
                 var length = $(this).val().replace(regex, '').length;
                 var remainingLength = maxLength - length;
-                
+
                 $('#chars').text(remainingLength);
             });
         }
@@ -205,8 +207,8 @@
 
 
         $(document).ready(function () {
-     
-           
+
+
 
             $("#preview").on("click", function (event) {
                 event.preventDefault();
@@ -237,7 +239,7 @@
                 <div class="row">
                     <h3 class="col-12" align="center" style="color:#C69214;">${title}</h3>
                     <p class="col-12" align="center">hosted by <a href="#">${host}</a></p>
-                </div>               
+                </div>
                 <div class="row" align="center">
                   <h5 class="col"><i class="far fa-clock"></i> ${startTime} - ${endTime}</h5>
                 </div>
@@ -247,12 +249,12 @@
                 <div class="row" >
                     <p class="col" style="color:#182B49;">Tagline: </br> <h5 style="padding: 0 1.5em 0 1.5em;"> ${tagline} </h5> </p>
                 </div>
-                
+
                 <div class="row">
                     <p class="col" style="color:#182B49;">Details: </br> <h5 style="padding: 0 1.5em 0 1.5em;"> ${description} </h5> </p>
                 </div>
-            
-                                      
+
+
             </div>
             <div class="modal-footer">
                     <button type="button" id="closePreview" class="btn btn-secondary" data-dismiss="modal" >Close</button>
@@ -293,7 +295,7 @@
                         description: $("#details").val().trim(),
                         image: $("#image").val().trim()
                     }).then(function (docRef) {
-                        
+
                         $("#name").val(""),
                             $("#host option:selected").val(""),
                             $("#date").val(""),
