@@ -74,7 +74,7 @@ $('.carousel').carousel({
  
 //ARYA'S STUFF PROBABLY ALL WRONG
 
-var actionCodeSettings = {
+/* var actionCodeSettings = {
   // URL you want to redirect back to. The domain (www.example.com) for this
   // URL must be whitelisted in the Firebase Console.
   url: 'https://senyan-luo.github.io/Evendar/pages/add_event.html',
@@ -100,5 +100,5 @@ firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
   .catch(function(error) {
     // Some error occurred, you can inspect the code: error.code
   });;
-    
+     */
 

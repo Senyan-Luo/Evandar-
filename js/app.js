@@ -8,13 +8,16 @@
     messagingSenderId: "279832144780"
   };
   firebase.initializeApp(config);
+  app_firebase = firebase;
+
+
  var db = firebase.firestore();
  db.settings({
     timestampsInSnapshots: true
   });
   const eventsRef = db.collection("events")
 
-  $("#submitform").on("click", )
+ /*  $("#submitform").on("click", )
 {
     "rules": {
         "whitelist": {
@@ -24,8 +27,6 @@
         ".read": "root.child('whitelist').child(auth.token.email.replace('.', '%2E')).exists()",
         ".write": "root.child('whitelist').child(auth.token.email.replace('.', '%2E')).exists()"
     }
-}
+} */
 
-  
 
- 
