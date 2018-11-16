@@ -10,6 +10,13 @@ nav{
   background-color: #006A96;
   border-bottom: solid 3px #ffcd00;
 }
+.navbar-collapse {
+  text-align: center;
+}
+
+.nav-item.a {
+  color:red;
+}
 .carousel {
     width:80%;
     margin: 0 auto;
