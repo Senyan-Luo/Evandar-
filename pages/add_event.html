@@ -205,7 +205,8 @@
 
 
         $(document).ready(function () {
-
+     
+           
 
             $("#preview").on("click", function (event) {
                 event.preventDefault();
@@ -254,12 +255,13 @@
                                       
             </div>
             <div class="modal-footer">
-                    <button type="button" id="closePreview" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="closePreview" class="btn btn-secondary" data-dismiss="modal" >Close</button>
             </div>
         </div>
     </div>
     </div>
     `
+
                 $(".previewMod").append(modalString)
             })
             $("#submitform").on("click", function (event) {
@@ -291,6 +293,7 @@
                         description: $("#details").val().trim(),
                         image: $("#image").val().trim()
                     }).then(function (docRef) {
+                        
                         $("#name").val(""),
                             $("#host option:selected").val(""),
                             $("#date").val(""),
@@ -301,7 +304,7 @@
                             $("#details").val(""),
                             $("#image").val("")
                         console.log("Document written with ID: ", docRef.id);
-
+                        setTimeout(function(){ location.reload(); }, 3000);
                     }).catch(function (error) {
                         console.error("Error adding document: ", error);
                     });
