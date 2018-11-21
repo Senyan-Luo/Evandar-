@@ -58,7 +58,10 @@ p{
 #taglineDiv {
   padding-right:0;
 }
-
+.fa-caret-down {
+    font-size: 2em;
+    color:#C69214;
+}
 label {
   margin-bottom: 0;
   margin-top:1.5em;

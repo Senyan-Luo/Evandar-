@@ -124,21 +124,52 @@
                                   </div>
     </script>
   <script id="listView-template" type="text/x-handlebars-template">
-    <div class="card">
+    <div class="card" >
         <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}">
-             {{date}}  <br /> {{title}}
-            </button>
+          <h5 class="mb-0 ">
+            <button class="btn btn-link collapsed container" type="button" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="row" >
+                    <h5 class="col-xs">{{date}}</h5>
+                  </div>
+                    <h5 class="col-xs offset-sm-5">
+                      <div class="row">
+                        <h5 class="col text-center">{{host}}</h5>
+                      </div>
+                      <div class="row">
+                          <h3 class="col text-center">{{title}}</h3>
+                        </div>
+                    </h5>    
+                </div>
+                <h3 class="col-sm-4 align-middle"><i class="fas fa-caret-down"></i></h3>
+                </div>
+              </button>
           </h5>
         </div>
     
         <div id="{{id}}" class="collapse collapse-events" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            {{description}}
+          <div class="card-body container">
+            <div class='row'>
+                  <div class="col text-left">
+                  <i class="far fa-clock"></i> {{startTime}} - {{endTime}}
+                  </div>
+              </div>
+            <div class='row'>
+              <div class="col text-left">
+              <i class="fas fa-map-marker-alt"></i> {{location}}
+              </div>
+            </div>
+            <br />
+              <div class="row">
+                <div class="col">
+              &nbsp;&nbsp;&nbsp;&nbsp;{{description}}
+            </div>
+            </div>
+            </div>
           </div>
         </div>
-      </div>
+     
     </script>
 
   <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
