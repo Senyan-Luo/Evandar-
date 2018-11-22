@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-light fixed-top">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="../index.html">Logo Area</a>
+            <a class="navbar-brand nav-link" href="../index.html">Logo Area</a>
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
                 aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,12 @@
                 <!-- Links -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link " id="landing-page" href="../index.html" style="color:#ffffff; font-size:1.5em;">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link " id="landing-page" href="../index.html" style="color:#ffffff; font-size:1.5em;">Home<span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="create-page" href="./add_event.html" style="color:#ffffff; font-size:1.5em;">Post New Event</a>
+                        <a class="nav-link" id="create-page" href="./add_event.html" style="color:#ffffff; font-size:1.5em;">Post
+                            New Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="faq-page" href="./faq.html" style="color:#ffffff; font-size:1.5em;">FAQ</a>
@@ -145,7 +147,11 @@
                         Your new event is now live on Evendar
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                        <button type="button" id="stayBtn" class="btn btn-secondary" data-dismiss="modal">Post Another
+                            Event</button>
+                        <button type="button" id="redirectBtn" class="btn btn-secondary" data-dismiss="modal">Return to
+                            Homepage</button>
 
                     </div>
                 </div>
@@ -188,7 +194,7 @@
                 var regex = /\s+/gi;
                 var length = $(this).val().replace(regex, '').length;
                 var remainingLength = maxLength - length;
-                
+
                 $('#chars').text(remainingLength);
             });
         }
@@ -207,12 +213,28 @@
 
 
         $(document).ready(function () {
-     
-           
+
+            $("#stayBtn").on("click", function () {
+                location.reload()
+            })
+            $("#redirectBtn").on("click", function () {
+                location.href = "../index.html"
+            })
+
+
+            $(".nav-link").on("click", function () {
+                console.log("leaving event creation page")
+                alert("You will be logged out when you leave this page")
+            })
+
 
             $("#preview").on("click", function (event) {
                 event.preventDefault();
                 $('[data-toggle="popover"]').popover()
+
+                
+                
+
                 let title = $("#name").val()
                 let host = $("#host option:selected").val()
                 let date = moment($("#date").val()).format('LL')
@@ -222,16 +244,18 @@
                 let tagline = $("#tagline").val()
                 let description = $("#details").val()
                 let image = $("#image").val()
-
+                let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
+                console.log(`${dateToConvert} ${$("#start-time").val().trim()}`)
+console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix())
 
                 modalString =
                     `
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header" >
-              <h5 class="modal-title" id="exampleModalLabel" style="color:#FFCD00;">Preview</h5>
-            </div>
+            <div class="modal-header"  >
+              <h3 class="modal-title"  id="exatmpleModalLabel" style="color:#FFCD00; margin:0 auto;">Preview</h3>
+            </div> 
             <div class="modal-body">
                 <div class="row" align="center">
                   <p class="col">${date}</p>
@@ -246,16 +270,30 @@
                 <div class="row" align="center">
                   <h5 class="col"><i class="fas fa-map-marker-alt"></i> location: ${location}</h5>
                 </div>
+
                 <div class="row" >
-                    <p class="col" style="color:#182B49;">Tagline: </br> <h5 style="padding: 0 1.5em 0 1.5em;"> ${tagline} </h5> </p>
+                    
+                    <h5 class="col" align="left" style="color:#006A96
+
+;">Tagline: </h5>
+                </div>
+                <div class="row justify-content-md-center">  
+                    <h5 class="col" style="padding: 0 1.5em 0 1.5em;"> &nbsp;&nbsp;&nbsp;&nbsp;${tagline} </h5>   
                 </div>
                 
                 <div class="row">
-                    <p class="col" style="color:#182B49;">Details: </br> <h5 style="padding: 0 1.5em 0 1.5em;"> ${description} </h5> </p>
+                       
+                    <h5 class="col" align="left" style="color:#006A96
+
+;">Details:</h5> 
+                    </div>
+                    <div class="row">
+                    <h5 class="col" style="padding: 0 1.5em 0 1.5em;"> &nbsp;&nbsp;&nbsp;&nbsp;${description} </h5> 
+                    </div>
                 </div>
             
                                       
-            </div>
+          
             <div class="modal-footer">
                     <button type="button" id="closePreview" class="btn btn-secondary" data-dismiss="modal" >Close</button>
             </div>
@@ -283,30 +321,34 @@
                 console.log("clicked submit button")
 
                 function sendToDB() {
+                    let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
+
                     db.collection('events').add({
                         title: $("#name").val().trim(),
                         host: $("#host option:selected").val(),
                         date: moment($("#date").val().trim()).format('LL'),
                         startTime: moment($("#start-time").val().trim(), "HH:mm").format(
-                            "hh:mm A"),
+                            "hh:mm A"),               
                         endTime: moment($("#end-time").val().trim(), "HH:mm").format("hh:mm A"),
+                        unixTime: moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix(),
                         location: $("#location").val().trim(),
                         tagline: $("#tagline").val().trim(),
                         description: $("#details").val().trim(),
                         image: $("#image").val().trim()
                     }).then(function (docRef) {
-                        
-                        $("#name").val(""),
-                            $("#host option:selected").val(""),
-                            $("#date").val(""),
-                            $("#start-time").val(""),
-                            $("#end-time").val(""),
-                            $("#location").val(""),
-                            $("#tagline").val(""),
-                            $("#details").val(""),
-                            $("#image").val("")
+
+                        /*   $("#name").val(""),
+                              $("#host option:selected").val(""),
+                              $("#date").val(""),
+                              $("#start-time").val(""),
+                              $("#end-time").val(""),
+                              $("#location").val(""),
+                              $("#tagline").val(""),
+                              $("#details").val(""),
+                              $("#image").val("") */
                         console.log("Document written with ID: ", docRef.id);
-                        setTimeout(function(){ location.reload(); }, 3000);
+
+
                     }).catch(function (error) {
                         console.error("Error adding document: ", error);
                     });

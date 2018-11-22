@@ -15,7 +15,8 @@
  db.settings({
     timestampsInSnapshots: true
   });
-  const eventsRef = db.collection("events")
+  const listEventsRef = db.collection("events").orderBy("unixTime")
+  const carouselEventsRef = db.collection("events")
 
  /*  $("#submitform").on("click", )
 {
