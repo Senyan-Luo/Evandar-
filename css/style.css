@@ -82,6 +82,21 @@ label {
   bottom: 35%;
 }
 
+.questions li{
+  font-size: 3em;
+  list-style-type: none;
+}
+
+.questions i {
+  font-size:1em;
+  color:black;
+  padding-right:0.8em;
+}
+
+.questions p {
+  padding-left:3.7em;
+}
+
 .popover{
   max-width: 80%;
  /*  z-index: 99 !important;
