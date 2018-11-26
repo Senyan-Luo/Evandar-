@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+
 </head>
 
 <body class="container">
@@ -33,7 +36,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="create-page" href="./add_event.html" style="color:#ffffff; font-size:1.5em;">Post
-                            New Event</a>
+                            Event | Edit Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="faq-page" href="./faq.html" style="color:#ffffff; font-size:1.5em;">FAQ</a>
@@ -214,6 +217,9 @@
 
         $(document).ready(function () {
 
+
+
+
             $("#stayBtn").on("click", function () {
                 location.reload()
             })
@@ -230,10 +236,20 @@
 
             $("#preview").on("click", function (event) {
                 event.preventDefault();
+
+                var user = firebase.auth().currentUser;
+
+                if (user) {
+                    console.log(user.email)
+
+                } else {
+                    // No user is signed in.
+                }
+
                 $('[data-toggle="popover"]').popover()
 
-                
-                
+
+
 
                 let title = $("#name").val()
                 let host = $("#host option:selected").val()
@@ -245,8 +261,8 @@
                 let description = $("#details").val()
                 let image = $("#image").val()
                 let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
-                console.log(`${dateToConvert} ${$("#start-time").val().trim()}`)
-console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix())
+                /*  console.log(`${dateToConvert} ${$("#start-time").val().trim()}`)
+console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix()) */
 
                 modalString =
                     `
@@ -328,9 +344,10 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
                         host: $("#host option:selected").val(),
                         date: moment($("#date").val().trim()).format('LL'),
                         startTime: moment($("#start-time").val().trim(), "HH:mm").format(
-                            "hh:mm A"),               
+                            "hh:mm A"),
                         endTime: moment($("#end-time").val().trim(), "HH:mm").format("hh:mm A"),
-                        unixTime: moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix(),
+                        unixTime: moment(`${dateToConvert} ${$("#start-time").val().trim()}`,
+                            "MM/DD/YYYY hh:mm").unix(),
                         location: $("#location").val().trim(),
                         tagline: $("#tagline").val().trim(),
                         description: $("#details").val().trim(),
@@ -357,7 +374,7 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
         })
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
 
 

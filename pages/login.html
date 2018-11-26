@@ -15,11 +15,7 @@
 
     <script src="../js/app.js"></script>
 
-    <!--  <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-<script src="../js/login.js"></script>
- -->
-
+   
 </head>
 
 <body class="container">
@@ -42,7 +38,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="create-page" href="./add_event.html" style="color:#ffffff; font-size:1.5em;">Post
-                            New Event</a>
+                            Event | Edit Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="faq-page" href="./faq.html" style="color:#ffffff; font-size:1.5em;">FAQ</a>
@@ -67,17 +63,20 @@
                         <div class="form-group">
                             <label for="inputEmail">Email</label>
                             <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                                placeholder="Enter Email" required>
-                            <small id="emailHelp" class "form-text text-muted">Your Organization's Email</small>
+                                placeholder="" required>
+                            <small id="emailHelp" class "form-text text-muted">Student Organization Email</small>
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter Password" required>
+                            <label for="pwd">Password</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="" required>
                         </div>
 
                         <div class="form-row">
                             <a type="button" style="margin:0 auto;" class="btn btn-outline-primary" onclick="login()"
-                                id="loginBtn">Sign in</a>
+                                id="loginBtn">Log In</a>
+                        </div>
+                        <div class="form-row text-center" style="margin-top:3%;" >
+                            <div><p class="text-muted" id="sign-up-text">New to Evendar? <a href="signup.html">Sign  up</a> now to start posting events!</p></div>
                         </div>
                     </form>
                 </div>
@@ -98,7 +97,8 @@
                     firebase.auth().signInWithEmailAndPassword(email, password).then(function (resp) {
                         console.log(resp)
                         alert("You are now logged in")
-                        window.location = "./add_event.html";
+                        window.location = "./portal.html";
+                        
                     }).catch(function (error) {
                         console.log(err)
                     });

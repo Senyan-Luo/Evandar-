@@ -12,22 +12,13 @@
 
 
  var db = firebase.firestore();
+ 
  db.settings({
     timestampsInSnapshots: true
   });
   const listEventsRef = db.collection("events").orderBy("unixTime")
   const carouselEventsRef = db.collection("events")
+  const usersRef = db.collection("users")
 
- /*  $("#submitform").on("click", )
-{
-    "rules": {
-        "whitelist": {
-            ".read": false,
-            ".write": false
-        },
-        ".read": "root.child('whitelist').child(auth.token.email.replace('.', '%2E')).exists()",
-        ".write": "root.child('whitelist').child(auth.token.email.replace('.', '%2E')).exists()"
-    }
-} */
 
 
