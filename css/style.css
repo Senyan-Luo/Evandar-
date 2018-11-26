@@ -6,6 +6,10 @@ body {
 .navbar-light .navbar-toggler {
     border:none;
 }
+
+.navbar {
+  padding: 1.4rem;
+}
 nav{
   background-color: #006A96;
   border-bottom: solid 3px #ffcd00;
@@ -22,7 +26,9 @@ nav{
     margin: 0 auto;
 
 }
-
+#listview-header {
+  padding: 0.1rem 0.5rem;
+}
 .carousel-control-next, .carousel-control-prev {
   opacity: 1;
 

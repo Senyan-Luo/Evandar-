@@ -12,12 +12,12 @@
 
 
  var db = firebase.firestore();
- 
+
  db.settings({
     timestampsInSnapshots: true
   });
   const listEventsRef = db.collection("events").orderBy("unixTime")
-  const carouselEventsRef = db.collection("events")
+  const carouselEventsRef = db.collection("events").orderBy("unixTime")
   const usersRef = db.collection("users")
 
 
