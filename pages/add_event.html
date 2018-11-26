@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+
 </head>
 
 <body class="container">
@@ -32,8 +35,8 @@
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="create-page" href="./add_event.html" style="color:#ffffff; font-size:1.5em;">Post
-                            New Event</a>
+                        <a class="nav-link" id="create-page" href="#" style="color:#ffffff; font-size:1.5em;">Post
+                            Event | Edit Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="faq-page" href="./faq.html" style="color:#ffffff; font-size:1.5em;">FAQ</a>
@@ -45,120 +48,118 @@
         </nav>
         <!--/.Navbar-->
     </header>
-    <div id="formDiv">
-        <form role="form" class="needs-validation" novalidate align-content=center>
-            <div class="form-row">
-                <div class="col-12 col-sm-6">
-                    <label for="name">Event Name</label>
-                    <input type="text" class="form-control" id="name" required>
-                    <div class="invalid-feedback">
-                        *required
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <label class="mr-sm-2" for="host">Host Organization</label>
-                    <select class="custom-select mr-sm-2 host" id="host" required>
-                        <option value=""></option>
-                        <option value="DS3">DS3</option>
-                        <option value="CU">CU</option>
-                        <option value="UBIC">UBIC</option>
-                        <option value="SGA">SGA</option>
-                        <option value="TAS">TAS</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Please select your organization's acronym
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-12 col-sm">
-                    <label for="date">Date</label>
-                    <input type="date" class="form-control" id="date" required>
-                    <div class="invalid-feedback">
-                        *required
-                    </div>
-                </div>
-                <div class="col-12 col-sm">
-                    <label for="start-time">Start Time (e.g. 11:30 AM)</label>
-                    <input type="time" class="form-control" id="start-time" required>
-                    <div class="invalid-feedback">
-                        *required
-                    </div>
-                </div>
-                <div class="col-12 col-sm">
-                    <label for="end-time">End Time (e.g. 03:30 PM)</label>
-                    <input type="time" class="form-control" id="end-time" required>
-                    <div class="invalid-feedback">
-                        *required
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-12 col-sm-12">
-                    <label for="location">Location</label>
-                    <input type="text" class="form-control" id="location" required>
-                    <div class="invalid-feedback">
-                        *required, put TBD if not known
-                    </div>
-                </div>
-            </div>
+    <!-- <div id="formDiv"> -->
+    <div class="row justify-content-sm-center">
+        <div class="col">
+            <div class="card border-primary" style="margin-top: 10%;">
+                    <div class="card-header" align="center" style="color:#006A96; font-size: 1.5em;">New Event Details</div>
+                <div class="card-body text-primary row" style="margin:2% auto;">
+                    <form role="form" class="needs-validation" novalidate align-content=center>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="name">Event Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                                <div class="invalid-feedback">
+                                    *required
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label for="date">Date (Pick from calendar)</label>
+                                <input type="date" class="form-control" id="date" required>
+                                <div class="invalid-feedback">
+                                    *required
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm">
+                                <label for="start-time">Start Time (e.g. 11:30 AM)</label>
+                                <input type="time" class="form-control" id="start-time" required>
+                                <div class="invalid-feedback">
+                                    *required
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm">
+                                <label for="end-time">End Time (e.g. 03:30 PM)</label>
+                                <input type="time" class="form-control" id="end-time" required>
+                                <div class="invalid-feedback">
+                                    *required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12 col-sm-12">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" id="location" required>
+                                <div class="invalid-feedback">
+                                    *required, put TBD if not known
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="form-row">
-                <div class="col-12 col-sm-6">
-                    <label for="tagline">Tagline</label>
+                        <div class="form-row">
+                            <div class="col-12 col-sm-6">
+                                <label for="tagline">Tagline</label>
 
-                    <textarea class="form-control" id="tagline" onkeyup="wordCounter()" rows="3" placeholder="How do you convince people to attend your event?"
-                        maxlength="140" required></textarea>
-                    <small id="passwordHelpInline" class="text-muted">
-                        <span id="chars">140</span> characters remaining
-                    </small>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <label for="details">Details</label>
-                    <textarea class="form-control" id="details" rows="3" placeholder="Everything people need to know about it"
-                        onkeyup="wordCounter2()" maxlength="600" required></textarea>
-                    <small id="passwordHelpInline" class="text-muted">
-                        <span id="count">600</span> characters remaining
-                    </small>
-                </div>
-            </div>
-            <div class="form-row" style="margin-top:2%; margin-bottom: 2%;">
-                <div class="col-6 col-sm-4 offset-sm-4">
-                    <input type="file" class="custom-file-input" id="image">
-                    <label class="custom-file-label" for="image">Upload background image</label>
-                </div>
-            </div>
-            <div class="form-row" style="margin-top:6%;">
-                <div id="preview" class="offset-sm-3"><button class="btn btn-primary" type="button" data-toggle="modal"
-                        data-target="#exampleModalLong">Preview</button></div>
-                <div class="offset-sm-3"><button id="submitform" type="submit" class="btn btn-primary" data-toggle="modal"
-                        data-target="#exampleModal">Submit</button></div>
-            </div>
-        </form>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header align-content">
-                        <h5 class="modal-title" id="exampleModalLabel">Upload Successful!</h5>
-
-                    </div>
-                    <div class="modal-body">
-                        Your new event is now live on Evendar
-                    </div>
-                    <div class="modal-footer">
-
-                        <button type="button" id="stayBtn" class="btn btn-secondary" data-dismiss="modal">Post Another
-                            Event</button>
-                        <button type="button" id="redirectBtn" class="btn btn-secondary" data-dismiss="modal">Return to
-                            Homepage</button>
-
-                    </div>
+                                <textarea class="form-control" id="tagline" onkeyup="wordCounter()" rows="3"
+                                    placeholder="How do you convince people to attend your event?" maxlength="140"
+                                    required></textarea>
+                                <small id="passwordHelpInline" class="text-muted">
+                                    <span id="chars">140</span> characters remaining
+                                </small>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label for="details">Details</label>
+                                <textarea class="form-control" id="details" rows="3" placeholder="Everything people need to know about it"
+                                    onkeyup="wordCounter2()" maxlength="600" required></textarea>
+                                <small id="passwordHelpInline" class="text-muted">
+                                    <span id="count">600</span> characters remaining
+                                </small>
+                            </div>
+                        </div>
+                       <!--  <div class="form-row" style="margin-top:2%; margin-bottom: 2%;">
+                            <div class="col-6 col-sm-4 offset-sm-4">
+                                <input type="file" class="custom-file-input" id="image">
+                                <label class="custom-file-label" for="image">Upload background image</label>
+                            </div>
+                        </div> -->
+                        <div class="form-row" style="margin-top:6%;">
+                            <div id="preview" class="offset-sm-3"><button class="btn btn-primary" type="button"
+                                    data-toggle="modal" data-target="#exampleModalLong">Preview</button></div>
+                            <div class="offset-sm-3"><button id="submitform" type="submit" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#exampleModal">Submit</button></div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="previewMod"></div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header align-content">
+                    <h5 class="modal-title" id="exampleModalLabel">Upload Successful!</h5>
+
+                </div>
+                <div class="modal-body">
+                    Your new event is now live on Evendar
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" id="stayBtn" class="btn btn-secondary" data-dismiss="modal">Post Another
+                        Event</button>
+                    <button type="button" id="redirectBtn" class="btn btn-secondary" data-dismiss="modal">Return to
+                        Homepage</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="previewMod"></div>
 
 
 
@@ -214,6 +215,9 @@
 
         $(document).ready(function () {
 
+
+
+
             $("#stayBtn").on("click", function () {
                 location.reload()
             })
@@ -230,10 +234,12 @@
 
             $("#preview").on("click", function (event) {
                 event.preventDefault();
+
+
                 $('[data-toggle="popover"]').popover()
 
-                
-                
+
+
 
                 let title = $("#name").val()
                 let host = $("#host option:selected").val()
@@ -243,10 +249,10 @@
                 let location = $("#location").val()
                 let tagline = $("#tagline").val()
                 let description = $("#details").val()
-                let image = $("#image").val()
+                /* let image = $("#image").val() */
                 let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
-                console.log(`${dateToConvert} ${$("#start-time").val().trim()}`)
-console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix())
+                /*  console.log(`${dateToConvert} ${$("#start-time").val().trim()}`)
+console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix()) */
 
                 modalString =
                     `
@@ -313,28 +319,55 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
                         event.preventDefault();
                         event.stopPropagation();
                     } else {
-                        sendToDB()
+                        getHost()
+
                     }
                     form.classList.add('was-validated');
                 });
 
                 console.log("clicked submit button")
 
-                function sendToDB() {
-                    let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
+                function getHost() {
 
+                    var userEmail = firebase.auth().currentUser.email;
+
+                    if (userEmail) {
+                        var query = usersRef.where("email", "==", userEmail)
+                        query.get().then(querySnapshot => {
+                            querySnapshot.docs.forEach(doc => {
+                                console.log(doc)
+                                console.log(doc.data())
+                                console.log(doc.data().acronym)
+                                var host = doc.data().acronym
+                                sendToDB(host)
+                            })
+                         
+                        });
+                        /* console.log(query)
+                        console.log(query.acronym) */
+                    } else {
+                        console.log("no user is found! Try log in again")
+                    }
+                }
+
+                function sendToDB(host) {
+                    console.log(host)
+                    let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
+                    
                     db.collection('events').add({
+
                         title: $("#name").val().trim(),
-                        host: $("#host option:selected").val(),
+                        host: host,
                         date: moment($("#date").val().trim()).format('LL'),
                         startTime: moment($("#start-time").val().trim(), "HH:mm").format(
-                            "hh:mm A"),               
+                            "hh:mm A"),
                         endTime: moment($("#end-time").val().trim(), "HH:mm").format("hh:mm A"),
-                        unixTime: moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix(),
+                        unixTime: moment(`${dateToConvert} ${$("#start-time").val().trim()}`,
+                            "MM/DD/YYYY hh:mm").unix(),
                         location: $("#location").val().trim(),
                         tagline: $("#tagline").val().trim(),
-                        description: $("#details").val().trim(),
-                        image: $("#image").val().trim()
+                        description: $("#details").val().trim()
+                        /* image: $("#image").val().trim() */
                     }).then(function (docRef) {
 
                         /*   $("#name").val(""),
@@ -357,7 +390,7 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
         })
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
 
 
