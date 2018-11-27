@@ -1,4 +1,8 @@
 $(document).ready(function () {
+//for A7, #listDiv is unhidden, carousel is hidden
+
+$("#main-body").hide()
+$("#eventsCarousel").hide()
 
   var source = $("#carousel-template").html();
  
@@ -10,8 +14,7 @@ $(document).ready(function () {
   console.log(listSource)
   var listTemplate = Handlebars.compile(listSource)
   var accordion = $("#accordion")
-
-  $("#listDiv").hide()
+  
 
     listEventsRef.get().then(snapshot => {
     snapshot.docs.forEach((doc, index) => {
