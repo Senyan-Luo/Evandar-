@@ -41,6 +41,11 @@ nav{
 
 }
 
+#login-invalid-feedback{
+  position:relative;
+  bottom: 120px;
+}
+
 #detailsBtn {
 padding:0.2em;
 position: absolute;
