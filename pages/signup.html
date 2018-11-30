@@ -8,7 +8,7 @@
     <title> Sign up today </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Abril+Fatface" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -28,12 +28,13 @@
     <header>
         <nav class="navbar navbar-light fixed-top">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="../index.html">Logo Area</a>
+            
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
                 aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="animated-icon"><span></span><span></span><span></span></div>
             </button>
+            <a class="navbar-brand" href="../index.html" id="evendar">Evendar</a>
             <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent22">
                 <!-- Links -->
@@ -56,16 +57,33 @@
         </nav>
         <!--/.Navbar-->
     </header>
+
+    <div class="card" style="margin-top:3em; background-color:#FFCD00">
+            <div class="card-header text-center">
+              Before You Sign Up
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Evendar is a platform for UCSD student organizations to advertise events, please understand that you are only eligible to sign up and post events on behalf of a registered ucsd student organization.<br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; It is our goal to keep our platform safe, any illegitimate signup will be promptly removed by our Admin. Thank you for your understanding. 
+                    
+                    
+                  </p>
+               
+              </blockquote>
+            </div>
+          </div>
+
     <div class="row justify-content-sm-center">
         <div class="col-sm-8">
             <div class="card border-primary" style="margin-top:5%;">
-                <div class="card-header" align="center">Sign Up</div>
+                <div class="card-header" align="center">New Student Organization Sign Up</div>
                 <div class="card-body text-primary">
-                    <form role="form" class="needs-validation" novalidate>
+                    <form role="form" id="sign-up-form" class="needs-validation" novalidate>
                         <div class="form-row">
 
                             <div class="form-group col-md-8">
-                                <label for="full-name">Full name</label>
+                                <label for="full-name">Full Name of Student Organization</label>
                                 <input type="text" class="form-control" id="full-name" placeholder="e.g. Data Science Student Society"
                                     required>
                                 <div class="invalid-feedback">
@@ -73,13 +91,13 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="acronym">Acronym</label>
+                                <label for="acronym">Initialism/Acronym</label>
                                 <input type="text" class="form-control" id="acronym" placeholder="e.g. DS3">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="email">Email</label>
+                                <label for="email">Official Email</label>
                                 <input type="email" class="form-control" id="email" placeholder="student organization email"
                                     required>
                                 <div class="invalid-feedback">
@@ -96,8 +114,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="facts">About Me</label>
-                            <textarea class="form-control" id="facts" rows="4" placeholder="Capture the purposes of the student organization that you represent"
+                            <label for="facts">About Us</label>
+                            <textarea class="form-control" id="facts" rows="4" placeholder="What people need to know about this student organizaton"
                                 required></textarea>
                             <div class="invalid-feedback">
                                 *Please provide a description of this student organization
@@ -109,7 +127,7 @@
                             <div class="form-check" style="margin-bottom: 3%;">
                                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                                 <h5>
-                                    I confirm that we are a registered UCSD student organization
+                                    I confirm that I am signing up on behalf of a registered UCSD student organization.
                                 </h5>
                                 <div class="invalid-feedback">
                                     Only UCSD student organizations are eligible to post events on Evendar, check the
@@ -118,7 +136,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <a id="signUp" style="margin:0 auto;" class="btn btn-primary-outline" type="submit">Sign Up</a>
+                                <button id="signUp" style="margin:0 auto;" class="btn btn-primary" type="submit">Sign Up</button>
                             </div>
 
                     </form>
@@ -172,7 +190,7 @@
                         facts: facts
                     }).then(function (docRef) {
                         console.log("Document written");
-                        alert(`Register successful! Sign in now to start posting`)
+                        alert(`Register successful! Sign in now and start posting`)
                         window.location = "./login.html"
                     })
                     .catch(function (error) {
@@ -184,12 +202,20 @@
             }).catch(function (err) {
                 console.log(err)
             });
-
-
-
-
-
         }
+
+        var input = document.getElementById("sign-up-form");
+        console.log(input)
+        // Execute a function when the user releases a key on the keyboard
+        input.addEventListener("keyup", function (event) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Trigger the button element with a click
+                document.getElementById("signUp").click();
+            }
+        });
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>

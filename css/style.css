@@ -3,12 +3,19 @@ body {
   padding-bottom: 5%;
 }
 
+#evendar{
+  font-family: 'Bungee Shade', cursive;
+  color: #fff;
+  font-size: 1.5em;
+  margin-left: 5px;
+}
 .navbar-light .navbar-toggler {
     border:none;
 }
 
 .navbar {
-  padding: 1.4rem;
+  padding: 1.2rem;
+  justify-content: left;
 }
 nav{
   background-color: #006A96;
@@ -20,6 +27,15 @@ nav{
 
 .nav-item.a {
   color:red;
+}
+
+#intro{
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 2em;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 2em;
+  color: #006A96;
 }
 .carousel {
     width:80%;
@@ -33,6 +49,9 @@ nav{
     /* margin-top: 1.5em; */
     padding: 0.7em;
 }
+.main-body{
+  position: absolute;
+}
 #listview-header {
   padding: 0.1rem 0.5rem;
 }
@@ -41,6 +60,15 @@ nav{
 
 }
 
+#login-invalid-feedback{
+  position:relative;
+  bottom: 120px;
+}
+#toggleBtn{
+  
+  position: relative;
+  left: 70%;
+}
 #detailsBtn {
 padding:0.2em;
 position: absolute;
@@ -153,7 +181,7 @@ label {
 
 
   .animated-icon span {
-      background:black;
+      background:white;
   }
 
 
