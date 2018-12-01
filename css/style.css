@@ -51,6 +51,7 @@ nav{
 }
 .main-body{
   position: absolute;
+  margin-bottom: 5%;
 }
 #listview-header {
   padding: 0.1rem 0.5rem;
