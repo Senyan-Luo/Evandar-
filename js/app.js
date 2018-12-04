@@ -19,6 +19,7 @@
   const listEventsRef = db.collection("events").orderBy("unixTime")
   const carouselEventsRef = db.collection("events").orderBy("unixTime")
   const usersRef = db.collection("users")
+  const eventsRef = db.collection("events")
 
 
 

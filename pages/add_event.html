@@ -359,7 +359,6 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
                     db.collection('events').add({
 
                         title: $("#name").val().trim(),
-                        host: host,
                         date: moment($("#date").val().trim()).format('LL'),
                         startTime: moment($("#start-time").val().trim(), "HH:mm").format(
                             "hh:mm A"),

@@ -5,7 +5,6 @@ $(document).ready(function () {
   $("#eventsCarousel").hide() */
   $("#listDiv").hide()
 
-
   var source = $("#carousel-template").html();
 
   var template = Handlebars.compile(source);
@@ -16,8 +15,6 @@ $(document).ready(function () {
   
   var listTemplate = Handlebars.compile(listSource)
   var accordion = $("#accordion")
-
-
 
   listEventsRef.get().then(snapshot => {
     snapshot.docs.forEach((doc, index) => {
@@ -45,16 +42,12 @@ $(document).ready(function () {
         });
 
         $(".btn-link").onclick = function (num) {
-          
           $("this").collapse()
         }(index)
-      })
-      
-        
+      })    
       });
     })
   
-
   carouselEventsRef.get().then(snapshot => {
     snapshot.docs.forEach((doc, index) => {
       let copyObj = JSON.parse(JSON.stringify(doc.data()));
