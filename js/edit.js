@@ -9,6 +9,7 @@ $(document).ready(function () {
 
     $("#loadPostsBtn").on("click", function (event) {
         event.preventDefault()
+
         getUser()
         $("#loadPostsBtn").addClass("invisible")
     })
@@ -28,6 +29,7 @@ $(document).ready(function () {
                     } else {
                         var host = doc.data().name
                     }
+                    $("#titleDiv").text(`All Events from ${doc.data().name}`)
                     getAllPosts(host)
                 })
 
@@ -46,6 +48,7 @@ $(document).ready(function () {
             copyObj.uid = doc.id
             copyObj.id = "number" + index
             copyObj.formId = "form" + copyObj.uid
+            copyObj.deleteId = "del" + copyObj.uid
             copyObj.date = moment(doc.data().date).format("YYYY-MM-DD")
             copyObj.startTime = moment(doc.data().startTime, "HH:mm A").format("HH:mm")
             copyObj.endTime = moment(doc.data().endTime, "HH:mm A").format("HH:mm")
@@ -57,14 +60,35 @@ $(document).ready(function () {
 
 
             $(".btn-link").onclick = function (num) {
+                console.log("clicked on a link")
                 $("this").collapse()
                 $(".edit").attr("contenteditable", true)
                 $(".card-footer").removeClass("invisible")
                 $(".edit-message").removeClass("invisible")
             }(index)
 
+            $(".delete-event").on("click", function (event) {
+                event.preventDefault();
+                console.log("hi")
+                var uid = $(this).attr('id')
+                var docId = uid.substring(3)
+
+                $('#deleteConfirmed').on("click", function () {
+                    console.log(docId)
+                    eventsRef.doc(`${docId}`).delete().then(function () {
+                        console.log("Document successfully deleted!");
+                        location.reload()
+                    }).catch(function (error) {
+                        console.error("Error removing document: ", error);
+                    });
+                })
+
+
+            })
+
             $(".updateBtn").on("click", function (event) {
-                event.preventDefault(); 
+                event.preventDefault();
+
                 //save updated data from an associated form into an object
                 var uid = $(this).attr('id')
                 var form = `#form${uid}`
@@ -73,14 +97,14 @@ $(document).ready(function () {
                 let updatedData = {
                     title: $(`${form} .name`).val().trim(),
                     date: moment($(`${form} .date`).val().trim()).format('LL'),
-                     startTime: moment($(`${form} .start-time`).val().trim(), "HH:mm").format("hh:mm A"),
+                    startTime: moment($(`${form} .start-time`).val().trim(), "HH:mm").format("hh:mm A"),
                     endTime: moment($(`${form} .end-time`).val().trim(), "HH:mm").format("hh:mm A"),
                     unixTime: moment(`${dateToConvert} ${$(`${form} .startTime`).val()}`, "MM/DD/YYYY hh:mm").unix(),
                     location: $(`${form} .location`).val().trim(),
                     tagline: $(`${form} .tagline`).val().trim(),
                     description: $(`${form} .details`).val().trim()
                 }
-               console.log(updatedData)
+                console.log(updatedData)
                 console.log("updateBtn clicked")
                 var forms = document.getElementsByClassName('needs-validation');
                 // Loop over them and prevent submission
@@ -98,14 +122,13 @@ $(document).ready(function () {
                 function updateDB(doc, updates) {
                     let uid = doc
                     const updatedData = updates
-
                     console.log(uid)
                     const docRef = eventsRef.doc(`${uid}`)
-                    
+
                     docRef.update({
                             title: updatedData.title,
                             date: updatedData.date,
-                             startTime: updatedData.startTime,
+                            startTime: updatedData.startTime,
                             endTime: updatedData.endTime,
                             unixTime: updatedData.unixTime,
                             location: updatedData.location,
@@ -115,7 +138,7 @@ $(document).ready(function () {
                         .then(function () {
                             console.log("Document successfully updated!");
                             window.location.reload()
-                            
+
 
                         })
                         .catch(function (error) {
@@ -123,6 +146,7 @@ $(document).ready(function () {
                             console.error("Error updating document: ", error);
                         });
                 }
+
 
             })
         }))
