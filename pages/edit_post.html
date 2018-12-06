@@ -52,26 +52,50 @@
         </nav>
         <!--/.Navbar-->
     </header>
-    <div class="jumbotron" style="margin-top:5em;">
+    <div class="row align-items-center" style="margin-top: 7%;">
+            <div class="col">
+                    <a title="Go Back" href="./portal.html"><i class="fas fa-long-arrow-alt-left"></i></a>
+                </div>
+        </div>
+    <div class="jumbotron" style="margin-top:1em;">
+            
 
-        <div class="card border-warning" style="margin-top:3em;">
-            <div class="card-body text-center" style="font-size:1.3em;">
-                <strong>Manage All Posts</strong>
+        <div class="card border-warning" style="margin-top:2%;">
+            <div class="card-body text-center" id="titleDiv" style="font-size:1.3em;">
+                <strong>Manage Current Posts</strong>
             </div>
-            <button id="loadPostsBtn" type="submit" class="btn btn-primary">Show All Events </button>
+            <button id="loadPostsBtn" type="submit" class="btn btn-primary">Refresh Events List</button>
         </div>
     </div>
 
 
 
     <div id="past-posts">
-
+            <div class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Delete this event?</h5>
+                        </div>
+                        <div class="modal-body">
+                          <p>Deleted event cannot be recovered</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" id="deleteConfirmed">Delete Event</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Keep event</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
     </div>
 
     <script id="all-posts-template" type="text/x-handlebars-template">
 
         <div class="card border-dark col-xs-12" style="width:70%; margin: 0 auto; margin-top:1em;">
-            <div class="card-header">
+            <div style="background-color:#006A96;">
+                <button type="button" data-target=".modal" data-toggle="modal" id="{{deleteId}}" style="margin:1% 0 1% 1%;" class="btn btn-warning btn-sm delete-event">Delete</button>
+            </div>
+            <div class="card-header" style="padding: 0 0 1% 1%;">
                     <h5 class="mb-0 ">
             <button class="btn btn-link collapsed container" type="button" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}">
                     <div class="row">
@@ -80,12 +104,12 @@
                           <h5 class="col-xs">{{date}}</h5>
                         </div>
                           <h5 class="col-xs offset-sm-5">
-                            <div class="row">
-                                <h3 class="col text-center">{{title}}</h3>
+                            <div class="row justify-content-center">
+                                <h3 class="col" align="center">{{title}}</h3>
                               </div>
                           </h5>    
                       </div>
-                      <h3 class="col-sm-4 align-middle"><i class="far fa-edit"></i></h3>
+                      <h3 class="col-sm-4 align-middle"><i title="Edit this event" class="far fa-edit"></i></h3>
                       </div>
                     </button>
                     </h5>
@@ -171,8 +195,8 @@
                                    
                                 </form>
                       </div>
-                      <div  class="card-footer border-dark invisible" text-center>
-                            <button type="submit" class="btn btn-primary updateBtn" id="{{uid}}">Update This Event</button></div>
+                      <div  class="card-footer border-dark invisible" align="center">
+                            <button type="submit" class="btn btn-primary updateBtn" id="{{uid}}">Update Event and Refresh Page</button></div>
                       </div>
                     </div>
         </div>

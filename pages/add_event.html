@@ -8,7 +8,8 @@
     <title> Create New Event </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Abril+Fatface" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -21,7 +22,7 @@
     <header>
         <nav class="navbar navbar-light fixed-top">
             <!-- Navbar brand -->
-            
+
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
                 aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,114 +52,136 @@
         <!--/.Navbar-->
     </header>
     <!-- <div id="formDiv"> -->
-    <div class="row justify-content-sm-center">
-        <div class="col">
-            <div class="card border-primary" style="margin-top: 10%;">
-                    <div class="card-header" align="center" style="color:#006A96; font-size: 1.5em;">New Event Details</div>
-                <div class="card-body text-primary row" style="margin:2% auto;">
-                    <form role="form" class="needs-validation" novalidate align-content=center>
-                        <div class="form-row">
-                            <div class="col">
-                                <label for="name">Event Name</label>
-                                <input type="text" class="form-control" id="name" required>
-                                <div class="invalid-feedback">
-                                    *required
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm">
-                                <label for="date">Date (Pick from calendar)</label>
-                                <input type="date" class="form-control" id="date" required>
-                                <div class="invalid-feedback">
-                                    *required
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm">
-                                <label for="start-time">Start Time (e.g. 11:30 AM)</label>
-                                <input type="time" class="form-control" id="start-time" required>
-                                <div class="invalid-feedback">
-                                    *required
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm">
-                                <label for="end-time">End Time (e.g. 03:30 PM)</label>
-                                <input type="time" class="form-control" id="end-time" required>
-                                <div class="invalid-feedback">
-                                    *required
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-12">
-                                <label for="location">Location</label>
-                                <input type="text" class="form-control" id="location" required>
-                                <div class="invalid-feedback">
-                                    *required, put TBD if not known
-                                </div>
-                            </div>
-                        </div>
+<div class="row align-items-center" style="margin-top: 7%;">
+    <div class="col">
+            <a title="Go Back" href="./portal.html"><i class="fas fa-long-arrow-alt-left"></i></a>
+        </div>
+</div>
+    <div class="card border-primary" style="margin-top: 2%;">
+        <div class="card-header" align="center" style="color:#006A96; font-size: 1.5em;">New Event Details</div>
+        <form role="form" class="needs-validation" novalidate>
+            <div class="form-row justify-content-center">
+                <div class="col-6">
+                    <label for="name">Event Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                    <div class="invalid-feedback">
+                        *required
+                    </div>
+                </div>
 
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <label for="tagline">Tagline</label>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-4">
+                    <label for="date">Date (Pick from calendar)</label>
+                    <input type="date" class="form-control" id="date" required>
+                    <div class="invalid-feedback">
+                        *required
+                    </div>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-4">
+                    <label for="start-time">Start Time(e.g. 11:30 AM)</label>
+                    <input type="time" class="form-control" id="start-time" required>
+                    <div class="invalid-feedback">
+                        *required
+                    </div>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-4">
+                    <label for="end-time">End Time(e.g. 03:30 PM)</label>
+                    <input type="time" class="form-control" id="end-time" required>
+                    <div class="invalid-feedback">
+                        *required
+                    </div>
+                </div>
+            </div>
 
-                                <textarea class="form-control" id="tagline" onkeyup="wordCounter()" rows="3"
-                                    placeholder="How do you convince people to attend your event?" maxlength="140"
-                                    required></textarea>
-                                <small id="passwordHelpInline" class="text-muted">
-                                    <span id="chars">140</span> characters remaining
-                                </small>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <label for="details">Details</label>
-                                <textarea class="form-control" id="details" rows="3" placeholder="Everything people need to know about it"
-                                    onkeyup="wordCounter2()" maxlength="600" required></textarea>
-                                <small id="passwordHelpInline" class="text-muted">
-                                    <span id="count">600</span> characters remaining
-                                </small>
-                            </div>
-                        </div>
-                       <!--  <div class="form-row" style="margin-top:2%; margin-bottom: 2%;">
+            <div class="form-row justify-content-center">
+                <div class="col-6">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" required>
+                    <div class="invalid-feedback">
+                        *required, put TBD if not known
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center">
+                <div class="col-8">
+                    <label for="tagline">Tagline</label>
+
+                    <textarea class="form-control" id="tagline" onkeyup="wordCounter()" rows="4" placeholder="How do you convince people to attend your event?"
+                        maxlength="250" required></textarea>
+                    <small id="passwordHelpInline" class="text-muted">
+                        <span id="chars">250</span> characters remaining
+                    </small>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-8">
+                    <label for="details">Details</label>
+                    <textarea class="form-control" id="details" rows="5" placeholder="Everything people need to know about it"
+                        onkeyup="wordCounter2()" maxlength="800" required></textarea>
+                    <small id="passwordHelpInline" class="text-muted">
+                        <span id="count">800</span> characters remaining
+                    </small>
+                </div>
+            </div>
+            <!--  <div class="form-row" style="margin-top:2%; margin-bottom: 2%;">
                             <div class="col-6 col-sm-4 offset-sm-4">
                                 <input type="file" class="custom-file-input" id="image">
                                 <label class="custom-file-label" for="image">Upload background image</label>
                             </div>
                         </div> -->
-                        <div class="form-row" style="margin-top:6%;">
-                            <div id="preview" class="offset-sm-3"><button class="btn btn-primary" type="button"
-                                    data-toggle="modal" data-target="#exampleModalLong">Preview</button></div>
-                            <div class="offset-sm-3"><button id="submitform" type="submit" class="btn btn-primary"
-                                    data-toggle="modal" data-target="#exampleModal">Submit</button></div>
-                        </div>
-                    </form>
-                </div>
+            <div class="form-row justify-content-center" style="margin-top:6%;">
+                <!-- <div id="preview" class="offset-sm-3"><button class="btn btn-primary" type="button"
+                                    data-toggle="modal" data-target="#exampleModalLong">Preview</button></div> -->
+                <div><button id="submitform" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        style="margin-bottom: 2em;">Submit</button></div>
             </div>
-        </div>
+        </form>
+
     </div>
+
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header align-content">
-                    <h5 class="modal-title" id="exampleModalLabel">Upload Successful!</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Upload Successful! <br /> <span class="text-center">
+                            Your new event is now live on Evendar</span></h5>
+
 
                 </div>
-                <div class="modal-body">
-                    Your new event is now live on Evendar
-                </div>
-                <div class="modal-footer">
+                <div class="modal-body container">
 
-                    <button type="button" id="stayBtn" class="btn btn-secondary" data-dismiss="modal">Post Another
-                        Event</button>
-                    <button type="button" id="redirectBtn" class="btn btn-secondary" data-dismiss="modal">Return to
-                        Homepage</button>
-
+                    <div class="row justify-content-center">
+                        <div class="col redirect-button" align="center">
+                            <button type="button" id="stayBtn" class="btn btn-primary" data-dismiss="modal">Post
+                                Another
+                                Event</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col redirect-button" align="center"><button type="button" id="toEditsBtn" class="btn btn-warning"
+                                data-dismiss="modal">Manage Past Posts</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col redirect-button" align="center">
+                            <button type="button" id="redirectBtn" class="btn btn-secondary" data-dismiss="modal">Return
+                                to
+                                Homepage</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
 
     <div class="previewMod"></div>
@@ -191,11 +214,11 @@
         })();
 
         function wordCounter() {
-            var maxLength = 140;
+            var maxLength = 250;
             $('#tagline').keyup(function () {
                 console.log("keyUp triggerd")
-                var regex = /\s+/gi;
-                var length = $(this).val().replace(regex, '').length;
+
+                var length = $(this).val().length;
                 var remainingLength = maxLength - length;
 
                 $('#chars').text(remainingLength);
@@ -203,11 +226,11 @@
         }
 
         function wordCounter2() {
-            var maxLength = 600;
+            var maxLength = 800;
             $('#details').keyup(function () {
                 console.log("keyUp triggerd")
-                var regex = /\s+/gi;
-                var length = $(this).val().replace(regex, '').length;
+
+                var length = $(this).val().length;
                 var remainingLength = maxLength - length;
                 $('#count').text(remainingLength);
             });
@@ -220,13 +243,13 @@
 
 
 
-            $("#stayBtn").on("click", function () {
-                location.reload()
-            })
+
             $("#redirectBtn").on("click", function () {
                 location.href = "../index.html"
             })
-
+            $("#toEditsBtn").on("click", function () {
+                location.href = "./edit_post.html"
+            })
 
             $(".nav-link").on("click", function () {
                 console.log("leaving event creation page")
@@ -234,7 +257,7 @@
             })
 
 
-            $("#preview").on("click", function (event) {
+            /*  $("#preview").on("click", function (event) {
                 event.preventDefault();
 
 
@@ -244,17 +267,17 @@
 
 
                 let title = $("#name").val()
-                let host = $("#host option:selected").val()
+                
                 let date = moment($("#date").val()).format('LL')
                 let startTime = moment($("#start-time").val().trim(), "HH:mm").format("hh:mm A")
                 let endTime = moment($("#end-time").val().trim(), "HH:mm").format("hh:mm A")
                 let location = $("#location").val()
                 let tagline = $("#tagline").val()
                 let description = $("#details").val()
-                /* let image = $("#image").val() */
+                 let image = $("#image").val() 
                 let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
-                /*  console.log(`${dateToConvert} ${$("#start-time").val().trim()}`)
-console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix()) */
+                  console.log(`${dateToConvert} ${$("#start-time").val().trim()}`)
+console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/YYYY hh:mm").unix()) 
 
                 modalString =
                     `
@@ -311,11 +334,12 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
     `
 
                 $(".previewMod").append(modalString)
-            })
+            }) */
+
             $("#submitform").on("click", function (event) {
                 event.preventDefault();
                 var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
+
                 var validation = Array.prototype.filter.call(forms, function (form) {
                     if (form.checkValidity() === false) {
                         event.preventDefault();
@@ -343,10 +367,9 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
                                 var host = doc.data().acronym
                                 sendToDB(host)
                             })
-                         
+
                         });
-                        /* console.log(query)
-                        console.log(query.acronym) */
+
                     } else {
                         console.log("no user is found! Try log in again")
                     }
@@ -355,11 +378,12 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
                 function sendToDB(host) {
                     console.log(host)
                     let dateToConvert = moment($("#date").val()).format('MM/DD/YYYY')
-                    
+
                     db.collection('events').add({
 
                         title: $("#name").val().trim(),
                         date: moment($("#date").val().trim()).format('LL'),
+                        host: host,
                         startTime: moment($("#start-time").val().trim(), "HH:mm").format(
                             "hh:mm A"),
                         endTime: moment($("#end-time").val().trim(), "HH:mm").format("hh:mm A"),
@@ -371,15 +395,15 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
                         /* image: $("#image").val().trim() */
                     }).then(function (docRef) {
 
-                        /*   $("#name").val(""),
-                              $("#host option:selected").val(""),
-                              $("#date").val(""),
-                              $("#start-time").val(""),
-                              $("#end-time").val(""),
-                              $("#location").val(""),
-                              $("#tagline").val(""),
-                              $("#details").val(""),
-                              $("#image").val("") */
+                        $("#name").val(""),
+                            $("#date").val(""),
+                            $("#start-time").val(""),
+                            $("#end-time").val(""),
+                            $("#location").val(""),
+                            $("#tagline").val(""),
+                            $("#details").val(""),
+                            $("#image").val("")
+                        $('.needs-validation').removeClass("was-validated")
                         console.log("Document written with ID: ", docRef.id);
 
 
