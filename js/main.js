@@ -34,7 +34,7 @@ $(document).ready(function () {
         var listString = listTemplate(copyObj)
         accordion.append(listString)
         $('[data-toggle="popover"]').popover({
-          container: ".card"
+          container: "body"
         });
 
         $(".popover-dismiss").popover({
@@ -43,7 +43,12 @@ $(document).ready(function () {
 
         $(".btn-link").onclick = function (num) {
           $("this").collapse()
+      
         }(index)
+
+      
+        
+        
       })    
       });
     })
@@ -68,6 +73,7 @@ $(document).ready(function () {
       carousel.append(string);
 
       $("#detailsBtn").onclick = function (num) {
+
         $('[data-toggle="popover"]').popover({
           container: "#carouselDiv"
         });
