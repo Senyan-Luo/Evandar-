@@ -66,12 +66,7 @@ nav{
   bottom: 120px;
 }
 
-#detailsBtn {
-padding:0.2em;
-position: absolute;
-bottom:5%;
-left:45%;
-}
+
 .fa-angle-left, .fa-angle-right {
   font-size: 3em;
   color:#C69214;
@@ -121,18 +116,19 @@ label {
 }
 
 .questions li{
-  font-size: 3em;
+  font-size: 2em;
   list-style-type: none;
+  color:#006A96;
 }
 
 .questions i {
-  font-size:1em;
+  font-size:0.8em;
   color:black;
   padding-right:0.8em;
 }
 
 .questions p {
-  padding-left:3.7em;
+  padding-left:0.8em;
 }
 
 .popover{
