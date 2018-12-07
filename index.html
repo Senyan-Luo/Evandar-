@@ -113,7 +113,7 @@
                               <div class="row">
                                 <h3 class="col-12" align="center">{{title}}</h3>
                                   <p class="col-12" align="center">Hosted by
-                                    <a tabindex="0" style="text-decoration:underline;" class="col-xs-3" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="who we are" data-content="{{fullName}}" data-container="#carouselDiv">{{host}}</a></p>
+                                    <a tabindex="0" style="text-decoration:underline;" class="col-xs-3" role="button" data-toggle="popover" data-trigger="hover" data-placement="top"  data-content="{{fullName}}" data-container="#carouselDiv">{{host}}</a></p>
                                 </div>
                                
                                   <div class="row" align="center">
@@ -129,39 +129,39 @@
                                   </div>
                                 </div>
                                   <div id="detailsBtn" class="row" align="center">
-                                    <a tabindex="0" class="btn-md btn btn-outline-info col-xs-3" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Event Details" data-content="{{description}}" data-container="#carouselDiv">details</a>
+                                    <a tabindex="0" class="btn-md btn btn-outline-info col-xs-3" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="{{description}}" data-container="#carouselDiv">details</a>
       </div>
                                     
 
                                   </div>
     </script>
   <script id="listView-template" type="text/x-handlebars-template">
-    <div class="card" style="width:70%; margin:0 auto;" >
-        <div class="card-header" id="listview-header">
+    <div class="card" style="width:70%; margin:1% auto; border-width:0.3em; border-color: #FFCD00;" >
+        <div class="card-header bg-transparent border-warning" id="listview-header">
           <h5 class="mb-0 ">
-            <button class="btn btn-link collapsed container" type="button" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}">
+            <button class="btn btn-link collapsed container" type="button" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}" style="text-decoration: none;">
               <div class="row">
                 <div class="col-sm-8">
                   <div class="row" >
-                    <h5 class="col-xs">{{date}}</h5>
+                    <h5 class="col-xs" style="color:#747678;">{{date}}</h5>
                   </div>
                     <h5 class="col-xs offset-sm-5">
                       <div class="row">
-                        <h5 class="col text-center">hosted by <a tabindex="0" style="text-decoration:underline;" class="col-xs-3" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Who we are" data-content="{{fullName}}" data-container=".card">{{host}}</a></h5>
+                        <h5 class="col text-center" style="color:#747678;">hosted by <a tabindex="0" style="text-decoration:none; color:#FC8900;" class="col-xs-3" role="button" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="{{fullName}}" data-container="body">{{host}}</a></h5>
                       </div>
                       <div class="row">
-                          <h3 class="col text-center">{{title}}</h3>
+                          <h3 class="col text-center" style="color:#C69214;">{{title}}</h3>
                         </div>
                     </h5>    
                 </div>
-                <h3 class="col-sm-4 align-middle"><i class="fas fa-caret-down"></i></h3>
+                <h3 class="col-sm-4 align-middle icon"><i class="fas fa-caret-down"></i></h3>
                 </div>
               </button>
           </h5>
         </div>
     
         <div id="{{id}}" class="collapse collapse-events" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body container">
+          <div class="card-body container" style="background-color: beige;">
             <div class='row'>
                   <div class="col text-left">
                   <i class="far fa-clock"></i> {{startTime}} - {{endTime}}
@@ -173,11 +173,19 @@
               </div>
             </div>
             <br />
+            
+         
               <div class="row">
                 <div class="col">
               &nbsp;&nbsp;&nbsp;&nbsp;{{description}}
             </div>
             </div>
+            <br />
+            <div class="row">
+              <div class="col">
+            &nbsp;&nbsp;&nbsp;&nbsp;{{tagline}} 
+          </div>
+          </div>
             </div>
           </div>
         </div>
