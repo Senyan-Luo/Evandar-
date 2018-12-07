@@ -1,9 +1,9 @@
 $(document).ready(function () {
   //for A7, #listDiv is unhidden, carousel is hidden
 
-  /* $("#main-body").hide()
-  $("#eventsCarousel").hide() */
-  $("#listDiv").hide()
+   $("#main-body").hide()
+   $("#eventsCarousel").hide()  
+  /* $("#listDiv").hide() */
 
   var source = $("#carousel-template").html();
 
@@ -104,19 +104,21 @@ $(document).ready(function () {
     trigger: "focus"
   });
 
-  $("#toggleBtn").on("click", function (event) {
-    console.log('clicked on toggle');
-    event.preventDefault();
-    $(".main-body").toggleClass("listView");
+  $("#toggleBtn").on("click", function () {
+    
     if ($(".main-body").hasClass("listView")) {
       $(".main-body").hide()
+      $("#eventsCarousel").hide()  
       $("#listDiv").show()
-      $("#toggleBtn").text("See Carousel")
+      $("#toggleBtn").text("Switch to Carousel Mode")
+      $(".main-body").toggleClass("listView");
     } else {
-      $("#toggleBtn").text("See List View")
+      $("#toggleBtn").text("Switch to List Mode")
       $(".main-body").show()
+      $("#eventsCarousel").show()  
       $("#listDiv").hide()
-      console.log("no list")
+      $(".main-body").toggleClass("listView");
+      
     }
   })
 })

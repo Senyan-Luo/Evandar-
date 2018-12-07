@@ -50,7 +50,7 @@ nav{
     padding: 0.7em;
 }
 .main-body{
-  
+  margin-top:1%;
   margin-bottom: 5%;
 }
 #listview-header {
@@ -65,11 +65,7 @@ nav{
   position:relative;
   bottom: 120px;
 }
-#toggleBtn{
-  
-  position: relative;
-  left: 70%;
-}
+
 #detailsBtn {
 padding:0.2em;
 position: absolute;
