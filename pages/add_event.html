@@ -401,7 +401,8 @@ console.log(moment(`${dateToConvert} ${$("#start-time").val().trim()}`, "MM/DD/Y
                             "MM/DD/YYYY hh:mm").unix(),
                         location: $("#location").val().trim(),
                         tagline: $("#tagline").val().trim(),
-                        description: $("#details").val().trim()
+                        description: $("#details").val().trim(),
+                        background: "./images/ucsd3.jpg"
                         /* image: $("#image").val().trim() */
                     }).then(function (docRef) {
 

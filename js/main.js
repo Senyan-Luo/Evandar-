@@ -1,8 +1,9 @@
 $(document).ready(function () {
-  //for A7, #listDiv is unhidden, carousel is hidden
+  //bg-fadefor A7, #listDiv is unhidden, carousel is hidden
 
    $("#main-body").hide()
    $("#eventsCarousel").hide()  
+  
   /* $("#listDiv").hide() */
 
   var source = $("#carousel-template").html();
@@ -104,22 +105,36 @@ $(document).ready(function () {
     trigger: "focus"
   });
 
-  $("#toggleBtn").on("click", function () {
-    
+  /* $("#toggleBtn").on("click", function () {
     if ($(".main-body").hasClass("listView")) {
       $(".main-body").hide()
       $("#eventsCarousel").hide()  
       $("#listDiv").show()
-      $("#toggleBtn").text("Switch to Carousel Mode")
+      $("#toggleBtn").text("See fliers")
       $(".main-body").toggleClass("listView");
     } else {
-      $("#toggleBtn").text("Switch to List Mode")
+      $("#toggleBtn").text("See list")
       $(".main-body").show()
       $("#eventsCarousel").show()  
       $("#listDiv").hide()
       $(".main-body").toggleClass("listView");
       
     }
+  }) */
+  $("#list-btn").on("click", function () {
+      $(".main-body").hide()
+      $("#eventsCarousel").hide()  
+      $("#listDiv").show()
+      $(".main-body").toggleClass("listView");
+      $("#list-btn, #flier-btn").toggleClass("btn-secondary btn-outline-secondary")
+  })
+  $("#flier-btn").on("click", function () {
+    $("#toggleBtn").text("See list")
+    $(".main-body").show()
+    $("#eventsCarousel").show()  
+    $("#listDiv").hide()
+    $(".main-body").toggleClass("listView"); 
+    $("#list-btn, #flier-btn").toggleClass("btn-outline-secondary btn-secondary")
   })
 })
 })
