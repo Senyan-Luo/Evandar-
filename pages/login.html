@@ -22,7 +22,7 @@
 
 <body class="container">
     <header>
-        <nav class="navbar navbar-light fixed-top">
+        <nav class="navbar navbar-light fixed-top row">
             <!-- Navbar brand -->
             
             <!-- Collapse button -->
@@ -56,38 +56,38 @@
 
 
 
-    <div class="row justify-content-sm-center">
-        <div class="col-sm-6">
+    <div class="row justify-content-center" style="margin-top: 30px;">
+        <div class="col-10 col-md-6">
             <div class="card border-primary" style="margin-top:10%;">
                
-                <div class="card-header bg-transparent" align="center">Sign In</div>
+                <div class="card-header bg-transparent" align="left">Please sign in</div>
                 <div class="card-body text-primary">
                     
                     <form id="login-form" class="needs-validation" novalidate>
-                            <div id="error-message" class="text-center" style="color:red;"></div>
+                            <div id="error-message" class="text-left" style="color:red;"></div>
                         
                         <div class="form-group">
                     
             
-                            <label for="inputEmail">Email</label>
+                            <label for="inputEmail">Student organization email:</label>
                             <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
                                 placeholder="" required>
-                            <small id="emailHelp" class "form-text text-muted">Student Organization Email</small>
+                        
                             
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Password</label>
+                            <label for="pwd">Password:</label>
                             <input type="password" class="form-control" id="pwd" placeholder="" required>
                         </div>
 
                         <div class="form-row">
                             <button type="submit" style="margin:0 auto;" class="btn btn-outline-primary"
-                                id="loginBtn">Log In</button>
+                                id="loginBtn">Sign In</button>
                         </div>
-                        <div class="form-row text-center" style="margin-top:3%;">
+                        <div class="form-row text-left" style="margin-top:3%;">
                             <div>
-                                <p class="text-muted" id="sign-up-text">New to Evendar? <a href="signup.html">Sign up</a>
-                                    now to start posting events!</p>
+                                <p class="text-muted text-left" id="sign-up-text">New to Evendar? <a href="signup.html">Register</a>
+                                your student orgnization and start posting events!</p>
                             </div>
                         </div>
                     </form>

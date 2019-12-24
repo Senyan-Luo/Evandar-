@@ -5,11 +5,8 @@ $(document).ready(function () {
     var template = Handlebars.compile(source);
     var tartgetDiv = $("#past-posts")
 
-
-
     $("#loadPostsBtn").on("click", function (event) {
         event.preventDefault()
-
         getUser()
         $("#loadPostsBtn").addClass("invisible")
     })

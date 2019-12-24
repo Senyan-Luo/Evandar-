@@ -26,7 +26,7 @@
     </div> -->
   <header>
     <nav class="navbar navbar-light row">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
+      <button class="navbar-toggler" style="padding-left: 0.75rem;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
         aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
         <div class="animated-icon">
           <span></span><span></span><span></span>
@@ -66,7 +66,7 @@
         LIST 
       </button>
       <button id="flier-btn" class="toggleBtn btn btn-outline-secondary btn-sm" type="button">
-        FLIER
+        FLYER
         </button>
     </div>
   </div>
@@ -156,21 +156,20 @@
           <h5 class="mb-0 ">
             <button class="btn btn-link collapsed container" type="button" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}" style="text-decoration: none;">
               <div class="row justify-content-center">
-                <div class="col-9">
+                <div class="col-11 col-md-8">
                   <div class="row" >
                     <p class="text-left" style="color:#747678;">{{date}}</p>
                   </div>
-                      <div class="row">
+                      <div class="row justify-content-between" align="bottom">
                           <h3 class="text-nowrap text-left" style="color:#C69214;font-weight: 600;">{{title}}
-                          <a tabindex="0" style="text-decoration:none; color:#747678;" role="button" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="{{fullName}}" data-container="body"><small><i class="fas fa-times"></i> {{host}}</small></a></h3>
+                          <a tabindex="0" style="text-decoration:none; color:#747678;" role="button" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="{{fullName}}" data-container="body"><small><i class="fas fa-times" style="color: #FFCD00;"></i> {{host}}</small></a></h3>
+                          <h3 class="text-right icon"><i class="fas fa-angle-down"></i></h3>
                         </div>
                       
                 </div>
-                <div class="col-2">
-                    <div class="row" >
-                        <p class="text-right icon"><i class="fas fa-caret-down"></i></p>
-                      </div>
-                      </div>
+                
+                   
+                      
                 
                 </div>
               </button>

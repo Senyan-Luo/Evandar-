@@ -99,12 +99,12 @@ circle:nth-child(3) {
 }
 .navbar-light .navbar-toggler {
     border:none;
-    margin-left: 5%;
 }
 
 .navbar {
   justify-content: left;
-  padding: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   margin-bottom: 10px;
 }
 nav{
@@ -185,13 +185,13 @@ p{
 }
 
 
-.fa-caret-down {
-    font-size: 2em;
+.fa-angle-down {
     color:rgb(0,106,150);
 }
 
 .fa-long-arrow-alt-left{
   font-size: 3em;
+  color:rgb(0,106,150);
 
 }
 label {
